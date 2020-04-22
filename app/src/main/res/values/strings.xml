@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
+
+    <!-- General -->
+    <string name="weather_forecast">天氣預報</string>
+
 </resources>
