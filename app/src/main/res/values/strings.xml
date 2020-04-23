@@ -3,5 +3,6 @@
 
     <!-- General -->
     <string name="weather_forecast">天氣預報</string>
+    <string name="image_between_data">資料間的任意圖片</string>
 
 </resources>
