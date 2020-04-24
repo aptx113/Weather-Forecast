@@ -5,8 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danteyu.studio.weatherforecast.R
+import com.danteyu.studio.weatherforecast.data.HomeItem
 import com.danteyu.studio.weatherforecast.data.Result
-import com.danteyu.studio.weatherforecast.data.Time
+import com.danteyu.studio.weatherforecast.data.Temperature
 import com.danteyu.studio.weatherforecast.data.source.WeatherRepository
 import com.danteyu.studio.weatherforecast.network.LoadApiStatus
 import com.danteyu.studio.weatherforecast.util.Logger
@@ -20,10 +21,10 @@ import kotlinx.coroutines.launch
  */
 class HomeViewModel(private val weatherRepository: WeatherRepository) : ViewModel() {
 
-    private val _weatherElementMinT = MutableLiveData<List<Time>>()
+    private val _homeItems = MutableLiveData<List<HomeItem>>()
 
-    val weatherElementMinT: LiveData<List<Time>>
-        get() = _weatherElementMinT
+    val homeItem: LiveData<List<HomeItem>>
+        get() = _homeItems
 
     // status: The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<LoadApiStatus>()
@@ -62,7 +63,7 @@ class HomeViewModel(private val weatherRepository: WeatherRepository) : ViewMode
             // It will return Result object after Deferred flow
             val result = weatherRepository.getWeatherForecast()
 
-            _weatherElementMinT.value = when (result) {
+            _homeItems.value = when (result) {
                 is Result.Success -> {
                     _error.value = null
                     if (isInitial) _status.value = LoadApiStatus.DONE

@@ -1,6 +1,7 @@
 package com.danteyu.studio.weatherforecast.data
 
 import android.os.Parcelable
+import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -9,5 +10,18 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class WeatherElement(
     val elementName: String,
-    val time: List<Time>
-) : Parcelable
+    @Json(name = "time")
+    val temperatureList: List<Temperature>? = null
+) : Parcelable {
+
+    fun toHomeItems(): List<HomeItem> {
+        val items = mutableListOf<HomeItem>()
+
+        temperatureList?.let {
+            for (temperature in it) {
+                items.add(HomeItem.WeatherForecastData(temperature))
+            }
+        }
+        return items
+    }
+}

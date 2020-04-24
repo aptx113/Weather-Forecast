@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+            name="image"
+            type="com.danteyu.studio.weatherforecast.data.WeatherImage" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

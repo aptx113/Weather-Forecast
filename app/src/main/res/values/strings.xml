@@ -7,4 +7,7 @@
     <string name="internet_not_connected">您尚未連接 Internet</string>
     <string name="you_know_nothing">You know nothing</string>
 
+<!-- Home -->
+    <string name="temperature_with_unit">%s%s</string>
+
 </resources>
