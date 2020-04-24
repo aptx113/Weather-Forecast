@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 data class WeatherForecastResponse(
     val error: String? = null,
     @Json(name = "success")
-    val response: Boolean? = null,
+    val response: String? = null,
     val result: WeatherForecastResult? = null,
     val records: WeatherForecastRecords? = null
 ) : Parcelable

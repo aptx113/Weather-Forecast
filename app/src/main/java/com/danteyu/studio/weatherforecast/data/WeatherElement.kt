@@ -9,5 +9,5 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class WeatherElement(
     val elementName: String,
-    val time: Time
+    val time: List<Time>
 ) : Parcelable

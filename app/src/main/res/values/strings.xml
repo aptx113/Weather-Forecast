@@ -4,5 +4,7 @@
     <!-- General -->
     <string name="weather_forecast">天氣預報</string>
     <string name="image_between_data">資料間的任意圖片</string>
+    <string name="internet_not_connected">您尚未連接 Internet</string>
+    <string name="you_know_nothing">You know nothing</string>
 
 </resources>
