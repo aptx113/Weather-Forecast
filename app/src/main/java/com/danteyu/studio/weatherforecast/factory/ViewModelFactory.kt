@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.danteyu.studio.weatherforecast.MainViewModel
 import com.danteyu.studio.weatherforecast.data.source.WeatherRepository
+import com.danteyu.studio.weatherforecast.home.HomeViewModel
 import java.lang.IllegalArgumentException
 
 /**
@@ -17,6 +18,8 @@ class ViewModelFactory constructor(
     override fun <T : ViewModel?> create(modelClass: Class<T>) = with(modelClass) {
         when {
             isAssignableFrom(MainViewModel::class.java) -> MainViewModel(weatherRepository)
+
+            isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(weatherRepository)
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
