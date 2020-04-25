@@ -1,6 +1,7 @@
 package com.danteyu.studio.weatherforecast.data
 
 import android.os.Parcelable
+import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -9,5 +10,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class WeatherForecastLocation(
     val locationName: String,
-    val weatherElement: List<WeatherElement>
+    @Json(name = "weatherElement")
+    val weatherForecastElements: List<WeatherForecastElement>
 ) : Parcelable

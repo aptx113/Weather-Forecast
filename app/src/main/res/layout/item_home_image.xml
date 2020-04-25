@@ -7,7 +7,7 @@
 
         <variable
             name="image"
-            type="com.danteyu.studio.weatherforecast.data.WeatherImage" />
+            type="com.danteyu.studio.weatherforecast.data.WeatherForecastImage" />
 
     </data>
 
@@ -19,7 +19,7 @@
             android:id="@+id/image_home"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:src="@{image.weatherImage}"
+            android:src="@{image.weatherForecastImage}"
             android:contentDescription="@string/image_between_data"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

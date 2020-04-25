@@ -3,7 +3,6 @@ package com.danteyu.studio.weatherforecast.data.source.remote
 import com.danteyu.studio.weatherforecast.R
 import com.danteyu.studio.weatherforecast.data.HomeItem
 import com.danteyu.studio.weatherforecast.data.Result
-import com.danteyu.studio.weatherforecast.data.Temperature
 import com.danteyu.studio.weatherforecast.data.source.WeatherDataSource
 import com.danteyu.studio.weatherforecast.network.WeatherApi
 import com.danteyu.studio.weatherforecast.util.Logger
@@ -29,7 +28,7 @@ object RemoteDataSource : WeatherDataSource {
                 return Result.Fail(it)
             }
             listResult.records?.let {
-                return Result.Success(it.location[0].weatherElement[0].toHomeItems())
+                return Result.Success(it.locations[0].weatherForecastElements[0].toHomeItems())
             }
             Result.Fail(getString(R.string.you_know_nothing))
 

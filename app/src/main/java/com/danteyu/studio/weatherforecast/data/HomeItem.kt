@@ -7,7 +7,7 @@ sealed class HomeItem {
 
     abstract val id: String
 
-    data class Image(val image: WeatherImage) : HomeItem() {
+    data class Image(val image: WeatherForecastImage) : HomeItem() {
         override val id: String = ""
     }
 

@@ -11,5 +11,6 @@ import kotlinx.android.parcel.Parcelize
 data class WeatherForecastRecords(
     @Json(name = "datasetDescription")
     val dataSetDescription: String,
-    val location: List<WeatherForecastLocation>
+    @Json(name = "location")
+    val locations: List<WeatherForecastLocation>
 ) : Parcelable

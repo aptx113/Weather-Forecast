@@ -10,5 +10,5 @@ import kotlinx.android.parcel.Parcelize
 data class Temperature(
     val startTime: String,
     val endTime: String,
-    val parameter: WeatherParameter
+    val parameter: WeatherForecastParameter
 ):Parcelable

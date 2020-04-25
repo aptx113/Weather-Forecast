@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.danteyu.studio.weatherforecast.data.HomeItem
 import com.danteyu.studio.weatherforecast.data.Temperature
-import com.danteyu.studio.weatherforecast.data.WeatherImage
+import com.danteyu.studio.weatherforecast.data.WeatherForecastImage
 import com.danteyu.studio.weatherforecast.databinding.ItemHomeImageBinding
 import com.danteyu.studio.weatherforecast.databinding.ItemHomeWeatherBinding
 import java.lang.ClassCastException
@@ -43,7 +43,7 @@ class HomeAdapter(private val onClickListener: OnClickListener) :
     class ImageViewHolder(private var binding: ItemHomeImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(image: WeatherImage) {
+        fun bind(image: WeatherForecastImage) {
             binding.image = image
             binding.executePendingBindings()
         }

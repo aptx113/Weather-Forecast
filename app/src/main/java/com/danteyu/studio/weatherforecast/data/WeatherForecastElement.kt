@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
  * Created by George Yu on 2020/4/24.
  */
 @Parcelize
-data class WeatherElement(
+data class WeatherForecastElement(
     val elementName: String,
     @Json(name = "time")
     val temperatureList: List<Temperature>? = null
@@ -22,7 +22,7 @@ data class WeatherElement(
         temperatureList?.let {
             it.forEach { temperature ->
                 items.add(HomeItem.WeatherForecastData(temperature))
-                items.add(HomeItem.Image(WeatherImage(getDrawable(R.drawable.ic_cwb))))
+                items.add(HomeItem.Image(WeatherForecastImage(getDrawable(R.drawable.ic_cwb))))
             }
         }
 
