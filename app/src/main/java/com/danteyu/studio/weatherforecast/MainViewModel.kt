@@ -1,5 +1,6 @@
 package com.danteyu.studio.weatherforecast
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.danteyu.studio.weatherforecast.data.source.WeatherRepository
@@ -16,10 +17,23 @@ class MainViewModel(private val weatherRepository: WeatherRepository) : ViewMode
     // Record current fragment to support data binding
     val currentFragmentType = MutableLiveData<CurrentFragmentType>()
 
+    private val _backToHome = MutableLiveData<Boolean>()
+
+    val backToHome: LiveData<Boolean>
+        get() = _backToHome
+
     init {
         Logger.i("------------------------------------")
         Logger.i("[${this::class.simpleName}]${this}")
         Logger.i("------------------------------------")
 
+    }
+
+    fun backToHome() {
+        _backToHome.value = true
+    }
+
+    fun onBackToHome() {
+        _backToHome.value = null
     }
 }

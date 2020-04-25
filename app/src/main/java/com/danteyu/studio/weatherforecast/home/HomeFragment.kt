@@ -12,9 +12,6 @@ import com.danteyu.studio.weatherforecast.NavigationDirections
 import com.danteyu.studio.weatherforecast.databinding.FragmentHomeBinding
 import com.danteyu.studio.weatherforecast.ext.getVmFactory
 
-/**
- * A simple [Fragment] subclass.
- */
 class HomeFragment : Fragment() {
 
     /**

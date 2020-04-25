@@ -50,6 +50,13 @@ class MainActivity : BaseActivity() {
             Logger.i("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         })
 
+        viewModel.backToHome.observe(this, Observer {
+            it?.let {
+                findNavController(R.id.myNavHostFragment).navigateUp()
+                viewModel.onBackToHome()
+            }
+        })
+
         setupNavController()
         setupToolbar()
     }

@@ -32,10 +32,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/image_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/back_button"
-                android:tint="@color/white"
+                android:onClick="@{() -> viewModel.backToHome()}"
+                android:tint="?colorOnSecondary"
                 android:visibility="@{viewModel.currentFragmentType == CurrentFragmentType.DETAIL ? View.VISIBLE : View.GONE }"
                 app:srcCompat="@drawable/ic_arrow_back" />
 

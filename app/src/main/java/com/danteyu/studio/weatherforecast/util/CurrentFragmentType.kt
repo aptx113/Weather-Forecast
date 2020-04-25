@@ -8,5 +8,5 @@ import com.danteyu.studio.weatherforecast.util.Util.getString
  */
 enum class CurrentFragmentType(val value: String) {
     HOME(getString(R.string.weather_forecast)),
-    DETAIL("")
+    DETAIL(getString(R.string.weather_detail))
 }

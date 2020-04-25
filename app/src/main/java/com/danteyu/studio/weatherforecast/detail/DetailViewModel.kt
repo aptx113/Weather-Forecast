@@ -20,10 +20,6 @@ class DetailViewModel(
     val temperature: LiveData<Temperature>
         get() = _temperature
 
-    private val _backToHome = MutableLiveData<Boolean>()
-
-    val backToHome: LiveData<Boolean>
-        get() = _backToHome
 
     init {
         Logger.i("------------------------------------")
@@ -32,11 +28,4 @@ class DetailViewModel(
 
     }
 
-    fun backToHome() {
-        _backToHome.value = true
-    }
-
-    fun onBackToHome() {
-        _backToHome.value = false
-    }
 }
