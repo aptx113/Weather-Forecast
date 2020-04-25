@@ -22,7 +22,7 @@ data class WeatherElement(
         temperatureList?.let {
             it.forEach { temperature ->
                 items.add(HomeItem.WeatherForecastData(temperature))
-                items.add(HomeItem.Image(WeatherImage(getDrawable(R.drawable.icon_cwb))))
+                items.add(HomeItem.Image(WeatherImage(getDrawable(R.drawable.ic_cwb))))
             }
         }
 

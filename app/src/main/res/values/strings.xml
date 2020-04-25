@@ -9,5 +9,6 @@
 
 <!-- Home -->
     <string name="temperature_with_unit">%s%s</string>
+    <string name="back_button">返回按鈕</string>
 
 </resources>

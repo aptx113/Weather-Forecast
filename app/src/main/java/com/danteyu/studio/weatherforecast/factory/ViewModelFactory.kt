@@ -9,6 +9,8 @@ import java.lang.IllegalArgumentException
 
 /**
  * Created by George Yu on 2020/4/22.
+ *
+ * Factory for all ViewModels.
  */
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory constructor(
