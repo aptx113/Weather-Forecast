@@ -5,6 +5,10 @@
 
     <data>
 
+        <import type="com.danteyu.studio.weatherforecast.util.CurrentFragmentType" />
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.danteyu.studio.weatherforecast.MainViewModel" />
@@ -26,6 +30,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back_button"
+                android:onClick="@{() -> viewModel.backToHome()}"
+                android:tint="?colorOnSecondary"
+                android:visibility="@{viewModel.currentFragmentType == CurrentFragmentType.DETAIL ? View.VISIBLE : View.GONE }"
+                app:srcCompat="@drawable/ic_arrow_back" />
 
             <TextView
                 android:id="@+id/text_toolbar_title"

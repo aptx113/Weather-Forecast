@@ -14,5 +14,13 @@
         android:id="@+id/detailFragment"
         android:name="com.danteyu.studio.weatherforecast.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="temperatureKey"
+            app:argType="com.danteyu.studio.weatherforecast.data.Temperature"
+            app:nullable="false" />
+    </fragment>
+    <action
+        android:id="@+id/navigate_to_detailFragment"
+        app:destination="@id/detailFragment" />
 </navigation>

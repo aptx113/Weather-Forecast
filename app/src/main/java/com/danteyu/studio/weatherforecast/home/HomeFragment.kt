@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.danteyu.studio.weatherforecast.NavigationDirections
 import com.danteyu.studio.weatherforecast.databinding.FragmentHomeBinding
 import com.danteyu.studio.weatherforecast.ext.getVmFactory
 
-/**
- * A simple [Fragment] subclass.
- */
 class HomeFragment : Fragment() {
 
     /**
@@ -29,6 +28,7 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.recyclerHome.adapter = HomeAdapter(HomeAdapter.OnClickListener {
+            viewModel.navigateToDetail(it)
 
         })
 
@@ -39,6 +39,13 @@ class HomeFragment : Fragment() {
         viewModel.refreshStatus.observe(viewLifecycleOwner, Observer {
             it?.let {
                 binding.layoutSwipeRefreshHome.isRefreshing = it
+            }
+        })
+
+        viewModel.navigateToDetail.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                findNavController().navigate(NavigationDirections.navigateToDetailFragment(it))
+                viewModel.onDetailNavigated()
             }
         })
 

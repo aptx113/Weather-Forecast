@@ -10,4 +10,5 @@
 
     <!-- Home  -->
     <dimen name="item_home_height">200dp</dimen>
+    <dimen name="space_detail_view">100dp</dimen>
 </resources>

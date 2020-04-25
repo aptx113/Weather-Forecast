@@ -26,6 +26,11 @@ class HomeViewModel(private val weatherRepository: WeatherRepository) : ViewMode
     val homeItem: LiveData<List<HomeItem>>
         get() = _homeItems
 
+    private val _navigateToDetail = MutableLiveData<Temperature>()
+
+    val navigateToDetail: LiveData<Temperature>
+        get() = _navigateToDetail
+
     // status: The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<LoadApiStatus>()
 
@@ -87,6 +92,14 @@ class HomeViewModel(private val weatherRepository: WeatherRepository) : ViewMode
             }
             _refreshStatus.value = false
         }
+    }
+
+    fun navigateToDetail(temperature: Temperature) {
+        _navigateToDetail.value = temperature
+    }
+
+    fun onDetailNavigated() {
+        _navigateToDetail.value = null
     }
 
     fun refresh() {

@@ -13,6 +13,8 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import com.danteyu.studio.weatherforecast.databinding.ActivityMainBinding
 import com.danteyu.studio.weatherforecast.ext.getVmFactory
+import com.danteyu.studio.weatherforecast.ext.setTouchDelegate
+import com.danteyu.studio.weatherforecast.ext.showToast
 import com.danteyu.studio.weatherforecast.util.CurrentFragmentType
 import com.danteyu.studio.weatherforecast.util.Logger
 import kotlinx.coroutines.launch
@@ -42,6 +44,7 @@ class MainActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        binding.imageBack.setTouchDelegate()
 
         // observe current fragment change, only for show info
         viewModel.currentFragmentType.observe(this, Observer {
@@ -50,8 +53,22 @@ class MainActivity : BaseActivity() {
             Logger.i("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         })
 
+        viewModel.backToHome.observe(this, Observer {
+            it?.let {
+                findNavController(R.id.myNavHostFragment).navigateUp()
+                viewModel.onBackToHome()
+            }
+        })
+
         setupNavController()
         setupToolbar()
+        setupVisitingMessage()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        UserManager.visitation = UserManager.visitation?.plus(1)
     }
 
     /**
@@ -106,5 +123,10 @@ class MainActivity : BaseActivity() {
             }
             Logger.i("====== ${Build.MODEL} ======")
         }
+    }
+
+    private fun setupVisitingMessage() {
+        if (UserManager.visitation!! > 0)
+            showToast(getString(R.string.welcome_back))
     }
 }
