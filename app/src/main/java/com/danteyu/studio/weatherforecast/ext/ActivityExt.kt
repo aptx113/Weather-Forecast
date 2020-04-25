@@ -16,7 +16,7 @@ fun Activity.getVmFactory(): ViewModelFactory {
 }
 
 fun Activity?.showToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).apply {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).apply {
         show()
     }
 }

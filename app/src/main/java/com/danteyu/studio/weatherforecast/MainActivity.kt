@@ -13,6 +13,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import com.danteyu.studio.weatherforecast.databinding.ActivityMainBinding
 import com.danteyu.studio.weatherforecast.ext.getVmFactory
+import com.danteyu.studio.weatherforecast.ext.showToast
 import com.danteyu.studio.weatherforecast.util.CurrentFragmentType
 import com.danteyu.studio.weatherforecast.util.Logger
 import kotlinx.coroutines.launch
@@ -59,6 +60,13 @@ class MainActivity : BaseActivity() {
 
         setupNavController()
         setupToolbar()
+        setupVisitingMessage()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        UserManager.visitation = UserManager.visitation?.plus(1)
     }
 
     /**
@@ -113,5 +121,10 @@ class MainActivity : BaseActivity() {
             }
             Logger.i("====== ${Build.MODEL} ======")
         }
+    }
+
+    private fun setupVisitingMessage() {
+        if (UserManager.visitation!! > 0)
+            showToast(getString(R.string.welcome_back))
     }
 }
