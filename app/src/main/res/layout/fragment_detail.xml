@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.danteyu.studio.weatherforecast.detail.DetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".detail.DetailFragment">
+
+
+        <View
+            android:id="@+id/view_detail_start_top"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_detail_view"
+            android:background="?colorSecondaryVariant"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_detail_temperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?colorSecondary"
+            app:layout_constraintBottom_toTopOf="@id/view_detail_end_bottom"
+            app:layout_constraintEnd_toStartOf="@id/view_detail_end_bottom"
+            app:layout_constraintStart_toEndOf="@id/view_detail_start_top"
+            app:layout_constraintTop_toBottomOf="@id/view_detail_start_top">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_detail_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/text_detail_startTime"
+                style="@style/CustomTextBodyDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.temperature.startTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline_detail_horizontal"
+                tools:text="2020-04-23 18:00:00" />
+
+            <TextView
+                android:id="@+id/text_detail_endTime"
+                style="@style/CustomTextBodyDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.temperature.endTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_detail_startTime"
+                tools:text="2020-04-24 06:00:00" />
+
+            <TextView
+                android:id="@+id/text_detail_minT"
+                style="@style/CustomTextBodyDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_detail_endTime"
+                app:unit="@{viewModel.temperature.parameter.parameterUnit}"
+                app:value="@{viewModel.temperature.parameter.parameterName}"
+                tools:text="17C" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view_detail_end_bottom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space_detail_view"
+            android:background="?colorSecondaryVariant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
