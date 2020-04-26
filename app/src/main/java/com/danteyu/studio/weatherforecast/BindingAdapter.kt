@@ -43,7 +43,7 @@ fun bindApiStatus(view: ProgressBar, status: LoadApiStatus?) {
 }
 
 /**
- * According to [message] to decide the visibility of [ProgressBar]
+ * According to [message] to decide the visibility of [TextView]
  */
 @BindingAdapter("setupApiErrorMessage")
 fun bindApiErrorMessage(view: TextView, message: String?) {
