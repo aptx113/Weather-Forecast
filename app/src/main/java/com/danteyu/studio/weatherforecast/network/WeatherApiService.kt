@@ -17,8 +17,8 @@ import retrofit2.http.GET
  */
 
 private const val HOST_NAME = "opendata.cwb.gov.tw"
-private const val API_VERSION = ""
-private const val BASE_URL = "https://$HOST_NAME/api/"
+private const val API_VERSION = "v1"
+private const val BASE_URL = "https://$HOST_NAME/api/$API_VERSION/"
 
 /**
  * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
@@ -53,7 +53,7 @@ private val retrofit = Retrofit.Builder()
  */
 interface WeatherApiService {
 
-    @GET("v1/rest/datastore/F-C0032-001?Authorization=CWB-B3C14D37-3272-4A86-9BA6-78FCC21CF666&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=MinT&sort=time")
+    @GET("rest/datastore/F-C0032-001?Authorization=CWB-B3C14D37-3272-4A86-9BA6-78FCC21CF666&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=MinT&sort=time")
     fun getWeatherForecastAsync():
     // The Coroutine Call Adapter allows us to return a Deferred, a Job with a result
             Deferred<WeatherForecastResponse>
